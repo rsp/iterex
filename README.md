@@ -1,23 +1,32 @@
 # iterex
 
-Iterator-based regular expressions for Go.
+<tt>
+ite<b>r</b><br/>
+&nbsp;&nbsp;&nbsp;<b>r</b><i>e</i><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<i>e</i>x
+</tt> - Iterator-based regular expressions for Go.
 
 Work in progress...
 
-## Issues
+<!-- ## Issues
 
 For any bug reports or feature requests please
-[post an issue on GitHub][issues-url].
+[post an issue on GitHub][issues-url]. -->
+
+## Requirements
+
+Go 1.23 or higher.
 
 ## Author
 
-[**Rafał Pocztarski**](https://pocztarski.com/)
+Rafał Pocztarski - <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub" width="16" height="16" style="vertical-align:middle"> [rsp][github-follow-url]
 
 ## License
 
 MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 
 [github-url]: https://github.com/rsp/iterex
+[github-logo]: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 [readme-url]: https://github.com/rsp/iterex#readme
 [issues-url]: https://github.com/rsp/iterex/issues
 [license-url]: https://github.com/rsp/iterex/blob/master/LICENSE.md
