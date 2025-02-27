@@ -14,7 +14,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Display Go version
         run: go version
-      - name: Check Go Formatting
+      - name: Check Go files formatting
         if: matrix.go-version == '1.24.x'
         run: ./scripts/check-fmt.sh
       - name: Build
