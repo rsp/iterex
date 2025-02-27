@@ -6,6 +6,8 @@ import (
 	"regexp"
 )
 
+// Iterex is the representation of a compiled regular expression.
+// It encapsulates [regexp.Regexp] (not to be used directly).
 type Iterex struct {
 	*regexp.Regexp
 }
