@@ -520,7 +520,6 @@ func TestFindEachIndexWithBreak(t *testing.T) {
 	}
 }
 
-
 //   - FindEachSubmatch:
 
 // TestFindEachSubmatch tests all matches by
@@ -590,7 +589,6 @@ func TestFindEachSubmatchWithBreak(t *testing.T) {
 		t.Errorf("FindEachSubmatch: got %v, want %v", got, want)
 	}
 }
-
 
 //   - FindEachSubmatchIndex:
 
