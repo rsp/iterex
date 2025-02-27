@@ -6,7 +6,95 @@ ite<b>r</b><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<i>e</i>x
 </tt> - Iterator-based regular expressions for Go.
 
-Work in progress...
+This package is just like the standard `regexp` with two differences:
+
+- it returns iterators (instead of all matches at once)
+- limits are optional (instead of having to specify `-1`)
+
+## TL;DR
+
+1. Change `regexp` to `iterex`
+2. Change `All` to `Each`
+3. Iterate!
+
+## Getting started
+
+Instead of:
+
+`re := regexp.MustCompile(pattern)`
+
+you call:
+
+`ir := iterex.MustCompile(pattern)`
+
+And instead of:
+
+`slice := re.FindAllString(str, -1)`
+
+you call:
+
+`iterator := re.FindAllString(str)`
+
+(limit is optional, defaults to `-1`)
+
+Then you can iterate:
+
+```go
+for s := range iterator {
+  fmt.Println(s)
+}
+```
+
+## Introduction
+
+`iterex` provides lazy version of "All" receiver functions from
+standard `regexp` package.
+
+Instead of "All" they have "Each" in their names because instead of
+returing all results at once, they return iterators that iterate over each result.
+
+## Constructors
+
+This package provides 4 ways to compile a pattern,
+just like the standard `regexp` package:
+
+- Return error:
+  - `ir, err := iterex.Compile("...")`
+  - `ir, err := iterex.CompilePOSIX("...")`
+- Panic on error:
+  - `ir := iterex.MustCompile("...")`
+  - `ir := iterex.MustCompilePOSIX("...")`
+
+## Receiver functions
+
+For every `regexp` receiver function with `All` in the name,
+it provides a function with `Each` that returns an iterator instead of all results at once.
+
+### Byte slice functions
+
+`var b []byte`
+
+- `ir.FindEach(b, n)` - iterator version of `re.FindAll(b, n)`
+- `ir.FindEachIndex(b, n)` - iterator version of `re.FindAllIndex(b, n)`
+- `ir.FindEachSubmatch(b, n)` - iterator version of `re.FindAllSubmatch(b, n)`
+- `ir.FindEachSubmatchIndex(b, n)` - iterator version of `re.FindAllSubmatchIndex(b, n)`
+
+Note that unlike in `regexp` the `n` is optional:
+
+- `ir.FindEach(b)` is the same as `ir.FindEach(b, -1)`
+
+### String functions
+
+`var s string`
+
+- `ir.FindEachString(s, n)` - iterator version of `re.FindAllString(s, n)`
+- `ir.FindEachStringIndex(s, n)` - iterator version of `re.FindAllStringIndex(s, n)`
+- `ir.FindEachStringSubmatch(s, n)` - iterator version of `re.FindAllStringSubmatch(s, n)`
+- `ir.FindEachStringSubmatchIndex(s, n)` - iterator version of `re.FindAllStringSubmatchIndex(s, n)`
+
+Note that unlike in `regexp` the `n` is optional:
+
+- `ir.FindEachString(s)` is the same as `ir.FindAllString(s, -1)`
 
 <!-- ## Issues
 
