@@ -2,7 +2,7 @@
 
 <tt>ite<b>r</b><br/>
 &nbsp;&nbsp;&nbsp;<b>r</b><i>e</i><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<i>e</i>x - Iterator-based regular expressions for Go.</tt>
+&nbsp;&nbsp;&nbsp;&nbsp;<i>e</i>x</tt> - Iterator-based regular expressions for Go.
 
 This package is just like the standard `regexp` with two differences:
 
