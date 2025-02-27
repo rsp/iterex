@@ -22,6 +22,18 @@ This package is like the standard `regexp` with two differences:
 - it returns iterators (instead of all matches at once)
 - limits are optional (instead of having to specify `-1`)
 
+## Requirements
+
+Go 1.23 or higher - since the `range` keyword accepts iterator functions:
+
+- https://tip.golang.org/doc/go1.23#language
+
+## Documentation
+
+Detailed documentation:
+
+- https://pkg.go.dev/github.com/rsp/iterex
+
 ## Quick start
 
 ### Install
@@ -125,16 +137,6 @@ Note that unlike in `regexp` the `n` is optional:
 
 For any bug reports or feature requests please
 [post an issue on GitHub][issues-url]. -->
-
-## Requirements
-
-Go 1.23 or higher.
-
-## Documentation
-
-Detailed documentation:
-
-- https://pkg.go.dev/github.com/rsp/iterex
 
 ## Author
 
