@@ -7,34 +7,54 @@
 &nbsp;&nbsp;&nbsp;<b>r</b><i>e</i><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<i>e</i>x</tt> - Iterator-based regular expressions for Go.
 
-This package is just like the standard `regexp` with two differences:
-
-- it returns iterators (instead of all matches at once)
-- limits are optional (instead of having to specify `-1`)
-
 ## TL;DR
 
 1. Change `regexp` to `iterex`
 2. Change `All` to `Each`
 3. Iterate!
 
-## Getting started
+This package is like the standard `regexp` with two differences:
+
+- it returns iterators (instead of all matches at once)
+- limits are optional (instead of having to specify `-1`)
+
+## Quick start
+
+### Install
+
+`go get github.com/rsp/iterex`
+
+### Import
+
+```go
+import "github.com/rsp/iterex"`
+```
+
+### Use
 
 Instead of:
 
-`re := regexp.MustCompile(pattern)`
+```go
+re := regexp.MustCompile(pattern)`
+```
 
 you call:
 
-`ir := iterex.MustCompile(pattern)`
+```go
+ir := iterex.MustCompile(pattern)`
+```
 
 And instead of:
 
-`slice := re.FindAllString(str, -1)`
+```go
+slice := re.FindAllString(str, -1)`
+```
 
 you call:
 
-`iterator := re.FindAllString(str)`
+```go
+iterator := re.FindAllString(str)`
+```
 
 (limit is optional, defaults to `-1`)
 
@@ -105,6 +125,12 @@ For any bug reports or feature requests please
 ## Requirements
 
 Go 1.23 or higher.
+
+## Documentation
+
+Detailed documentation:
+
+- https://pkg.go.dev/github.com/rsp/iterex
 
 ## Author
 
