@@ -115,21 +115,21 @@ func (ir *Iterex) FindEachSubmatch(b []byte, n ...int) iter.Seq[[][]byte] {
 		var pos, i int
 		for pos < len(b) && (lim < 0 || i < lim) {
 			match := ir.FindSubmatchIndex(b[pos:])
-      if match == nil {
-        break
-      }
+			if match == nil {
+				break
+			}
 			start := pos + match[0]
-      end := pos + match[1]
-      sub := [][]byte{b[start:end]}
-      for i := 2; i < len(match); i += 2 {
-        sstart := pos + match[i]
-        send := pos + match[i + 1]
-        if sstart >= 0 {
-        	sub = append(sub, b[sstart:send])
-        }
-      }
+			end := pos + match[1]
+			sub := [][]byte{b[start:end]}
+			for i := 2; i < len(match); i += 2 {
+				sstart := pos + match[i]
+				send := pos + match[i+1]
+				if sstart >= 0 {
+					sub = append(sub, b[sstart:send])
+				}
+			}
 			if !yield(sub) {
-					return
+				return
 			}
 			pos = end
 			i++
@@ -151,17 +151,17 @@ func (ir *Iterex) FindEachSubmatchIndex(b []byte, n ...int) iter.Seq[[]int] {
 		var pos, i int
 		for pos < len(b) && (lim < 0 || i < lim) {
 			match := ir.FindSubmatchIndex(b[pos:])
-      if match == nil {
-        break
-      }
+			if match == nil {
+				break
+			}
 			start := pos + match[0]
-      end := pos + match[1]
-      sub := []int{start, end}
-      for i := 2; i < len(match); i++ {
-				sub = append(sub, pos + match[i])
-      }
+			end := pos + match[1]
+			sub := []int{start, end}
+			for i := 2; i < len(match); i++ {
+				sub = append(sub, pos+match[i])
+			}
 			if !yield(sub) {
-					return
+				return
 			}
 			pos = end
 			i++
@@ -240,21 +240,21 @@ func (ir *Iterex) FindEachStringSubmatch(s string, n ...int) iter.Seq[[]string] 
 		var pos, i int
 		for pos < len(s) && (lim < 0 || i < lim) {
 			match := ir.FindStringSubmatchIndex(s[pos:])
-      if match == nil {
-        break
-      }
+			if match == nil {
+				break
+			}
 			start := pos + match[0]
-      end := pos + match[1]
-      sub := []string{s[start:end]}
-      for i := 2; i < len(match); i += 2 {
-        sstart := pos + match[i]
-        send := pos + match[i + 1]
-        if sstart >= 0 {
-        	sub = append(sub, s[sstart:send])
-        }
-      }
+			end := pos + match[1]
+			sub := []string{s[start:end]}
+			for i := 2; i < len(match); i += 2 {
+				sstart := pos + match[i]
+				send := pos + match[i+1]
+				if sstart >= 0 {
+					sub = append(sub, s[sstart:send])
+				}
+			}
 			if !yield(sub) {
-					return
+				return
 			}
 			pos = end
 			i++
@@ -275,17 +275,17 @@ func (ir *Iterex) FindEachStringSubmatchIndex(s string, n ...int) iter.Seq[[]int
 		var pos, i int
 		for pos < len(s) && (lim < 0 || i < lim) {
 			match := ir.FindStringSubmatchIndex(s[pos:])
-      if match == nil {
-        break
-      }
+			if match == nil {
+				break
+			}
 			start := pos + match[0]
-      end := pos + match[1]
-      sub := []int{start, end}
-      for i := 2; i < len(match); i++ {
-				sub = append(sub, pos + match[i])
-      }
+			end := pos + match[1]
+			sub := []int{start, end}
+			for i := 2; i < len(match); i++ {
+				sub = append(sub, pos+match[i])
+			}
 			if !yield(sub) {
-					return
+				return
 			}
 			pos = end
 			i++
