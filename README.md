@@ -1,6 +1,7 @@
 # iterex
 
 [![Test][test-badge-img]][test-badge-url]
+[![Coverage][codecov-badge-img]][codecov-badge-url]
 
 <tt>ite<b>r</b><br/>
 &nbsp;&nbsp;&nbsp;<b>r</b><i>e</i><br/>
@@ -129,3 +130,5 @@ MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 [stackexchange-img]: https://stackexchange.com/users/flair/303952.png
 [test-badge-img]: https://github.com/rsp/iterex/actions/workflows/test.yml/badge.svg
 [test-badge-url]: https://github.com/rsp/iterex/actions/workflows/test.yml
+[codecov-badge-img]: https://codecov.io/gh/rsp/iterex/graph/badge.svg?token=BBAWZZM6Q2
+[codecov-badge-url]: https://codecov.io/gh/rsp/iterex
