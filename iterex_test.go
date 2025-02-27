@@ -18,6 +18,89 @@ func TestFindString(t *testing.T) {
 	}
 }
 
+// Tests for compile functions:
+
+// TestCompileSuccess tests Compile for correct pattern
+func TestCompileSuccess(t *testing.T) {
+	p := `\d+`
+	r, err := Compile(p)
+	if err != nil {
+		t.Errorf("Compile: unexpected error: %v", err)
+	}
+	if r == nil {
+		t.Errorf("Compile: retured nil")
+	}
+}
+
+// TestCompileError tests Compile for incorrect pattern
+func TestCompileError(t *testing.T) {
+	p := `a+[`
+	r, err := Compile(p)
+	if err == nil {
+		t.Errorf("Compile: should return error")
+	}
+	if r != nil {
+		t.Errorf("Compile: should return nil")
+	}
+}
+
+// TestCompilePosixSuccess tests CompilePOSIX for correct pattern
+func TestCompilePosixSuccess(t *testing.T) {
+	p := `a+`
+	r, err := CompilePOSIX(p)
+	if err != nil {
+		t.Errorf("CompilePOSIX: unexpected error: %v", err)
+	}
+	if r == nil {
+		t.Errorf("CompilePOSIX: retured nil")
+	}
+}
+
+// TestCompilePosixError tests CompilePOSIX for incorrect pattern
+// (which would be valid for Compile)
+func TestCompilePosixError(t *testing.T) {
+	p := `\d+`
+	r, err := CompilePOSIX(p)
+	if err == nil {
+		t.Errorf("CompilePOSIX: should return error")
+	}
+	if r != nil {
+		t.Errorf("CompilePOSIX: should return nil")
+	}
+}
+
+// Tests for difference between PCRE and POSIX:
+
+// TestMustCompile tests MustCompile for PCRE-like behavior
+func TestMustCompile(t *testing.T) {
+	p := `ab|abc`
+	s := "abcdef"
+	want := []string{"ab"}
+	var got []string
+	ir := MustCompile(p)
+	for m := range ir.FindEachString(s) {
+		got = append(got, m)
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("MustCompile and FindEachString: got %v, want %v", got, want)
+	}
+}
+
+// TestMustCompilePosix tests MustCompilePOSIX for POSIX-like behavior
+func TestMustCompilePosix(t *testing.T) {
+	p := `ab|abc`
+	s := "abcdef"
+	want := []string{"abc"}
+	var got []string
+	ir := MustCompilePOSIX(p)
+	for m := range ir.FindEachString(s) {
+		got = append(got, m)
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("MustCompilePOSIX and FindEachString: got %v, want %v", got, want)
+	}
+}
+
 // Tests working on strings:
 
 // TestFindEachString tests all matches by
