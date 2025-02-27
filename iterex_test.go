@@ -142,16 +142,15 @@ func TestFindEachStringWithLimit(t *testing.T) {
 // TestFindEachStringNoMatch tests matches by
 // FindEachString with no match
 func TestFindEachStringNoMatch(t *testing.T) {
-	ir := MustCompile(`x+`)
+	ir := MustCompile(`X+`)
 	s := "aaaxxaaaxxxaxxxxaaax"
-	want := []string{}
 	var got []string
 	it := ir.FindEachString(s)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachString: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachStringIndex: got %v, want empty", got)
 	}
 }
 
@@ -196,14 +195,13 @@ func TestFindEachStringIndexWithLimit(t *testing.T) {
 func TestFindEachStringIndexNoMatch(t *testing.T) {
 	ir := MustCompile(`X+`)
 	s := "aaaxxaaaxxxaxxxxaaax"
-	want := [][]int{}
 	var got [][]int
 	it := ir.FindEachStringIndex(s)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachStringIndex: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachStringIndex: got %v, want empty", got)
 	}
 }
 
@@ -248,14 +246,13 @@ func TestFindEachStringSubmatchWithLimit(t *testing.T) {
 func TestFindEachStringSubmatchNoMatch(t *testing.T) {
 	ir := MustCompile(`(x+)(Y+)`)
 	s := "aaaxyaaaaxxyyaaaaxxxyyyaaaaaxxxxxyyyyy"
-	want := [][]string{}
 	var got [][]string
 	it := ir.FindEachStringSubmatch(s)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachStringSubmatch: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachStringSubmatch: got %v, want empty", got)
 	}
 }
 
@@ -296,18 +293,17 @@ func TestFindEachStringSubmatchIndexWithLimit(t *testing.T) {
 }
 
 // TestFindEachStringSubmatchIndexNoMatch tests matches by
-// FindEachStringSubmatchIndex with limit
+// FindEachStringSubmatchIndex with no matches
 func TestFindEachStringSubmatchIndexNoMatch(t *testing.T) {
-	ir := MustCompile(`(x+)(y+)`)
+	ir := MustCompile(`(x+)(Y+)`)
 	s := "aaaxyaaaaxxyyaaaaxxxyyyaaaaaxxxxxyyyyy"
-	want := [][]int{}
 	var got [][]int
 	it := ir.FindEachStringSubmatchIndex(s)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachStringSubmatchIndex: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachStringSubmatchIndex: got %v, want empty", got)
 	}
 }
 
@@ -354,14 +350,13 @@ func TestFindEachWithLimit(t *testing.T) {
 func TestFindEachNoMatch(t *testing.T) {
 	ir := MustCompile(`X+`)
 	b := []byte("aaaxxaaaxxxaxxxxaaax")
-	want := [][]byte{}
 	var got [][]byte
 	it := ir.FindEach(b)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEach: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEach: got %v, want empty", got)
 	}
 }
 
@@ -406,15 +401,15 @@ func TestFindEachIndexWithLimit(t *testing.T) {
 func TestFindEachIndexNoMatch(t *testing.T) {
 	ir := MustCompile(`X+`)
 	b := []byte("aaaxxaaaxxxaxxxxaaax")
-	want := [][]int{}
 	var got [][]int
 	it := ir.FindEachIndex(b)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachIndex: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachIndex: got %v, want empty", got)
 	}
+
 }
 
 //   - FindEachSubmatch:
@@ -456,17 +451,17 @@ func TestFindEachSubmatchWithLimit(t *testing.T) {
 // TestFindEachSubmatchNoMatch tests matches by
 // FindEachSubmatch with no match
 func TestFindEachSubmatchNoMatch(t *testing.T) {
-	ir := MustCompile(`(x+)(y+)`)
+	ir := MustCompile(`(x+)(Y+)`)
 	b := []byte("aaaxyaaaaxxyyaaaaxxxyyyaaaaaxxxxxyyyyy")
-	want := [][][]byte{}
 	var got [][][]byte
 	it := ir.FindEachSubmatch(b)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachSubmatch: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachSubmatch: got %v, want empty", got)
 	}
+
 }
 
 //   - FindEachSubmatchIndex:
@@ -509,15 +504,14 @@ func TestFindEachSubmatchIndexWithIndex(t *testing.T) {
 // FindEachSubmatchIndex with limit
 func TestFindEachSubmatchIndexNoMatch(t *testing.T) {
 	lim := 2
-	ir := MustCompile(`(x+)(y+)`)
+	ir := MustCompile(`(x+)(Y+)`)
 	b := []byte("aaaxyaaaaxxyyaaaaxxxyyyaaaaaxxxxxyyyyy")
-	want := ir.FindAllSubmatchIndex(b, lim)
 	var got [][]int
 	it := ir.FindEachSubmatchIndex(b, lim)
 	for e := range it {
 		got = append(got, e)
 	}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("FindEachSubmatchIndex: got %v, want %v", got, want)
+	if len(got) != 0 {
+		t.Errorf("FindEachSubmatchIndex: got %v, want empty", got)
 	}
 }
