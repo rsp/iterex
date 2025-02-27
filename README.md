@@ -39,25 +39,25 @@ import "github.com/rsp/iterex"`
 Instead of:
 
 ```go
-re := regexp.MustCompile(pattern)`
+re := regexp.MustCompile(pattern)
 ```
 
 you call:
 
 ```go
-ir := iterex.MustCompile(pattern)`
+ir := iterex.MustCompile(pattern)
 ```
 
 And instead of:
 
 ```go
-slice := re.FindAllString(str, -1)`
+slice := re.FindAllString(str, -1)
 ```
 
 you call:
 
 ```go
-iterator := re.FindAllString(str)`
+iterator := re.FindAllString(str)
 ```
 
 (limit is optional, defaults to `-1`)
