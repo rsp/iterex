@@ -1,4 +1,4 @@
-// iterex provides iterator-based regular expressions for Go.
+// Package iterex provides iterator-based regular expressions for Go.
 //
 // 1. Change `regexp` to `iterex`
 // 2. Change `All` to `Each`
