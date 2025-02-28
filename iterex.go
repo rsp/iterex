@@ -1,6 +1,8 @@
 // Package iterex provides iterator-based regular expressions for Go.
 // Change `regexp` to `iterex`, change `All` to `Each` and iterate!
 // This package is like the standard `regexp` with two differences:
+// It returns iterators (instead of all matches at once)
+// and the limits are optional (instead of having to specify `-1`).
 package iterex
 
 import (
