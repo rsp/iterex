@@ -2,6 +2,7 @@
 
 [![Tests][test-badge-img]][test-badge-url]
 [![Coverage][codecov-badge-img]][codecov-badge-url]
+[![Go Report Card][goreport-badge-img]][goreport-badge-url]
 [![Go version][goversion-badge-img]][goversion-badge-url]
 [![Go Reference][pkg-badge-img]][pkg-badge-url]
 [![GitHub License][license-badge-img]][license-url]
@@ -172,3 +173,5 @@ MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 [license-badge-img]: https://img.shields.io/github/license/rsp/iterex
 [goversion-badge-img]: https://img.shields.io/github/go-mod/go-version/rsp/iterex
 [goversion-badge-url]: #requirements
+[goreport-badge-img]: https://goreportcard.com/badge/github.com/rsp/iterex
+[goreport-badge-url]: ttps://goreportcard.com/report/github.com/rsp/iterex
