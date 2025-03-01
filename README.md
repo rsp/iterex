@@ -3,6 +3,7 @@
 [![Tests][test-badge-img]][test-badge-url]
 [![Coverage][codecov-badge-img]][codecov-badge-url]
 [![Go Reference][pkg-badge-img]][pkg-badge-url]
+[![GitHub License][license-badge-img]][license-url]
 
 ```
 iter
@@ -167,3 +168,4 @@ MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 [codecov-badge-url]: https://codecov.io/gh/rsp/iterex
 [pkg-badge-img]: https://pkg.go.dev/badge/github.com/rsp/iterex.svg
 [pkg-badge-url]: https://pkg.go.dev/github.com/rsp/iterex
+[license-badge-img]: https://img.shields.io/github/license/rsp/iterex
