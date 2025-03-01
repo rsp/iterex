@@ -2,6 +2,7 @@
 
 [![Tests][test-badge-img]][test-badge-url]
 [![Coverage][codecov-badge-img]][codecov-badge-url]
+[![Go Reference][pkg-badge-img]][pkg-badge-url]
 
 ```
 iter
@@ -24,7 +25,7 @@ This package is like the standard `regexp` with two differences:
 
 ## Requirements
 
-Go 1.23 or higher - since the `range` keyword accepts iterator functions:
+Go 1.23 or higher - the `range` keyword accepts iterator functions sice that version:
 
 - https://tip.golang.org/doc/go1.23#language
 
@@ -164,3 +165,5 @@ MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 [test-badge-url]: https://github.com/rsp/iterex/actions/workflows/test.yml
 [codecov-badge-img]: https://codecov.io/gh/rsp/iterex/graph/badge.svg?token=BBAWZZM6Q2
 [codecov-badge-url]: https://codecov.io/gh/rsp/iterex
+[pkg-badge-img]: https://pkg.go.dev/badge/github.com/rsp/iterex.svg
+[pkg-badge-url]: https://pkg.go.dev/github.com/rsp/iterex
