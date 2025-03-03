@@ -3,7 +3,6 @@
 [![Tests][test-badge-img]][test-badge-url]
 [![Coverage][codecov-badge-img]][codecov-badge-url]
 [![Go Report Card][goreport-badge-img]][goreport-badge-url]
-[![Codacy Badge][codacy-badge-img]][codacy-badge-url]
 [![Go version][goversion-badge-img]][goversion-badge-url]
 [![Go Reference][pkg-badge-img]][pkg-badge-url]
 [![GitHub License][license-badge-img]][license-url]
@@ -180,5 +179,3 @@ MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 [goreport-badge-url]: ttps://goreportcard.com/report/github.com/rsp/iterex
 [snyk-badge-img]: https://snyk.io/test/github/rsp/iterex/badge.svg
 [snyk-badge-url]: https://snyk.io/test/github/rsp/iterex
-[codacy-badge-img]: https://app.codacy.com/project/badge/Grade/b1c6d5a60adb4a40b44157eddb1ac0e8
-[codacy-badge-url]: https://app.codacy.com/gh/rsp/iterex/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
