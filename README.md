@@ -90,11 +90,14 @@ for s := range iterator {
 
 ## Introduction
 
-`iterex` provides lazy version of "All" receiver functions from
+`iterex` provides lazy version of the "All" receiver functions from
 standard `regexp` package.
 
 Instead of "All" they have "Each" in their names because instead of
-returing all results at once, they return iterators that iterate over each result.
+returing all results at once, they return iterators that iterate over each result,
+one at a time.
+
+You can terminate the iteration early by `break`ing from the loop.
 
 ## Constructors
 
