@@ -75,10 +75,10 @@ slice := re.FindAllString(str, -1)
 you call:
 
 ```go
-iterator := re.FindAllString(str)
+iterator := re.FindEachString(str)
 ```
 
-(limit is optional, defaults to `-1`)
+(limit is optional, defaults to `-1` meaning no limit)
 
 Then you can iterate:
 
@@ -124,7 +124,7 @@ it provides a function with `Each` that returns an iterator instead of all resul
 
 Note that unlike in `regexp` the `n` is optional:
 
-- `ir.FindEach(b)` is the same as `ir.FindEach(b, -1)`
+- `ir.FindEach(b)` is the same as `ir.FindEach(b, -1)` (no limit)
 
 ### String functions
 
@@ -137,7 +137,7 @@ Note that unlike in `regexp` the `n` is optional:
 
 Note that unlike in `regexp` the `n` is optional:
 
-- `ir.FindEachString(s)` is the same as `ir.FindAllString(s, -1)`
+- `ir.FindEachString(s)` is the same as `ir.FindEachString(s, -1)` (no limit)
 
 <!-- ## Issues
 
